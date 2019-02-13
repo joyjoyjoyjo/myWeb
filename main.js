@@ -59,9 +59,11 @@ thick.onclick = function(){
   lineWidth = 8
 }
 clear.onclick = function(){
+  clear.classList.add('active')
   context.clearRect(0,0,yyy.width,yyy.height);
 }
 download.onclick = function(){
+  download.classList.add('active')
   var url = yyy.toDataURL("image/png")
   var a = document.createElement('a')
   document.body.appendChild(a)
