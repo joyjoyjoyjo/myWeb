@@ -17,8 +17,6 @@ body{
     overflow: hidden;
 }
 
-html{
-}
 
 .actions{
     position: fixed;
@@ -55,6 +53,9 @@ background: green;
 .colors> li.blue{
 background: blue;
 }
+.colors> li.yellow{
+    background: yellow;
+    }
 .colors> li.purple{
     background: purple;
 }
@@ -71,12 +72,22 @@ top: 45px;
 margin: 20px 0;
 }
 .sizes > .thin{
-eight: 0;
+height: 0;
 width: 20px;
 border-top: 3px solid black;
 }
-.sizes > .thick{
+.sizes > .thin.active{
     height: 0;
     width: 20px;
-    border-top: 6px solid black;
+    border-top: 3px solid red;
+    }
+.sizes > .thick{
+        height: 0;
+        width: 20px;
+        border-top: 6px solid black;
+    }
+.sizes > .thick.active{
+    height: 0;
+    width: 20px;
+    border-top: 6px solid red;
 }

@@ -12,11 +12,13 @@ var eraserEnabled = false
 pen.onclick = function(){
     eraserEnabled = false
     pen.classList.add('active')
+    clear.classList.remove('active')
     eraser.classList.remove('active')
 }
 eraser.onclick = function(){
     eraserEnabled = true
     eraser.classList.add('active')
+    clear.classList.remove('active')
     pen.classList.remove('active')
 }
 
@@ -27,6 +29,7 @@ red.onclick = function(){
     green.classList.remove('active')
     blue.classList.remove('active')
     purple.classList.remove('active')
+    yellow.classList.remove('active')
 }
 green.onclick = function(){
     context.fillStyle ='green'
@@ -35,6 +38,16 @@ green.onclick = function(){
     red.classList.remove('active')
     blue.classList.remove('active')
     purple.classList.remove('active')
+    yellow.classList.remove('active')
+}
+yellow.onclick = function(){
+  context.fillStyle ='yellow'
+  context.strokeStyle ='yellow'
+  yellow.classList.add('active')
+  green.classList.remove('active')
+  red.classList.remove('active')
+  blue.classList.remove('active')
+  purple.classList.remove('active')
 }
 blue.onclick = function(){
     context.fillStyle ='blue'
@@ -42,28 +55,40 @@ blue.onclick = function(){
     blue.classList.add('active')
     green.classList.remove('active')
     red.classList.remove('active')
+    yellow.classList.remove('active')
     purple.classList.remove('active')
 }
 purple.onclick = function(){
   context.fillStyle ='purple'
   context.strokeStyle ='purple'
+  yellow.classList.remove('active')
   purple.classList.add('active')
   blue.classList.remove('active')
   green.classList.remove('active')
   red.classList.remove('active')
 }
 thin.onclick = function(){
-  lineWidth = 5
+  thin.classList.add('active')
+  thick.classList.remove('active')
+  lineWidth = 4
 }
 thick.onclick = function(){
+  thick.classList.add('active')
+  thin.classList.remove('active')
   lineWidth = 8
 }
 clear.onclick = function(){
+  eraserEnabled = true
   clear.classList.add('active')
+  eraser.classList.remove('active')
+  pen.classList.remove('active')
   context.clearRect(0,0,yyy.width,yyy.height);
 }
 download.onclick = function(){
   download.classList.add('active')
+  eraser.classList.remove('active')
+  clear.classList.remove('active')
+  pen.classList.remove('active')
   var url = yyy.toDataURL("image/png")
   var a = document.createElement('a')
   document.body.appendChild(a)
@@ -92,7 +117,7 @@ function autoSetCanvasSize(canvas) {
 
 function drawCircle(x, y, radius) {
   context.beginPath()
-  context.fillStyle = 'black'
+  context.fillStyle = 'red'
   context.arc(x, y, radius, 0, Math.PI * 2);
   context.fill()
 }
